@@ -1,0 +1,7 @@
+# NutriSmart - Dependencias
+PyQt6>=6.6.0
+
+# Para crear el ejecutable (cuando estés listo):
+# pyinstaller
+
+# Nota: SQLite3 viene incluido con Python
