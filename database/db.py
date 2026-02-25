@@ -1,8 +1,22 @@
 import sqlite3
 import os
+import sys
 from datetime import datetime, date
 
-DB_PATH = os.path.join(os.path.dirname(__file__), 'nutrismart.db')
+
+def _get_db_path():
+    """Devuelve la ruta de la base de datos.
+    Cuando la app está empaquetada usa la misma carpeta del ejecutable.
+    En desarrollo usa el directorio del módulo.
+    """
+    if getattr(sys, 'frozen', False):
+        data_dir = os.path.dirname(sys.executable)
+    else:
+        data_dir = os.path.dirname(__file__)
+    return os.path.join(data_dir, 'nutrismart.db')
+
+
+DB_PATH = _get_db_path()
 
 
 def get_connection():

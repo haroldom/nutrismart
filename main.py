@@ -164,7 +164,10 @@ def main():
     app.setStyle('Fusion')
 
     # Registrar fuentes personalizadas
-    fonts_dir = os.path.join(os.path.dirname(__file__), 'assets', 'fonts')
+    if getattr(sys, 'frozen', False):
+        fonts_dir = os.path.join(sys._MEIPASS, 'assets', 'fonts')
+    else:
+        fonts_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'assets', 'fonts')
     QFontDatabase.addApplicationFont(os.path.join(fonts_dir, 'Inter.ttf'))
     QFontDatabase.addApplicationFont(os.path.join(fonts_dir, 'Phosphor.ttf'))
 
