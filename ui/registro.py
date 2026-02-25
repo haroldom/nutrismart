@@ -262,6 +262,27 @@ class RegistroWidget(QWidget):
         self.sexo_combo = QComboBox()
         self.sexo_combo.addItems(["Masculino", "Femenino"])
         self.sexo_combo.setMinimumHeight(45)
+        self.sexo_combo.setStyleSheet(f"""
+            QComboBox {{
+                padding: 12px 15px;
+                border: 1px solid {Colores.BORDE};
+                border-radius: 6px;
+                background-color: {Colores.FONDO_CARD};
+                color: {Colores.TEXTO};
+                font-size: 14px;
+            }}
+            QComboBox::drop-down {{
+                border: none;
+                width: 30px;
+            }}
+            QComboBox QAbstractItemView {{
+                background-color: {Colores.FONDO_CARD};
+                border: 1px solid {Colores.BORDE};
+                selection-background-color: #e8f5e9;
+                selection-color: {Colores.PRIMARIO};
+                color: {Colores.TEXTO};
+            }}
+        """)
         sexo_layout.addWidget(self.sexo_combo)
         col_der.addWidget(sexo_widget)
 
@@ -285,6 +306,27 @@ class RegistroWidget(QWidget):
             self.actividad_combo.addItem(f"{data['nombre']} - {data['descripcion']}", key)
 
         self.actividad_combo.setMinimumHeight(45)
+        self.actividad_combo.setStyleSheet(f"""
+            QComboBox {{
+                padding: 12px 15px;
+                border: 1px solid {Colores.BORDE};
+                border-radius: 6px;
+                background-color: {Colores.FONDO_CARD};
+                color: {Colores.TEXTO};
+                font-size: 14px;
+            }}
+            QComboBox::drop-down {{
+                border: none;
+                width: 30px;
+            }}
+            QComboBox QAbstractItemView {{
+                background-color: {Colores.FONDO_CARD};
+                border: 1px solid {Colores.BORDE};
+                selection-background-color: #e8f5e9;
+                selection-color: {Colores.PRIMARIO};
+                color: {Colores.TEXTO};
+            }}
+        """)
         actividad_layout.addWidget(self.actividad_combo)
         form_layout.addWidget(actividad_widget)
 
